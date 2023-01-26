@@ -16,6 +16,7 @@ public class Servidor {
 
             // 3 - Abrir flujos de lectura y escritura de datos
             InputStream is = peticion.getInputStream();
+             // InputStreamReader que irá dentro del BufferReader
             InputStreamReader isR = new InputStreamReader(is);
             OutputStream os = peticion.getOutputStream();
 
@@ -24,7 +25,9 @@ public class Servidor {
             System.out.println("Ejercicio1.Servidor envía al cliente un mensaje");
             OutputStreamWriter osw = new OutputStreamWriter(os, "UTF-8");
             BufferedWriter bw = new BufferedWriter(osw);
+            // Se crea un bufferReader para leer la ruta del cliente
             BufferedReader br = new BufferedReader(isR);
+            // Se le envía al cliente el contenido del fichero
             bw.write(leerFichero(String.valueOf((br.readLine()))));
             bw.newLine();
             bw.flush();
@@ -46,6 +49,13 @@ public class Servidor {
         }
     }
 
+    /**
+     * Método que recibe como parámetro un String con la ruta y el nombre del archivo, se usa
+     * un buffereader para leer todo el contenido del fichero y se guarda en una variable
+     * que será devuelta por el método.
+     * @param ruta
+     * @return
+     */
     public static String leerFichero(String ruta) {
 
         BufferedReader br = null;

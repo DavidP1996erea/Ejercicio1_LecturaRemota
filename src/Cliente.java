@@ -3,7 +3,7 @@ import java.net.*;
 import java.util.Scanner;
 
 public class Cliente {
-    
+
     public static void main(String[] args) {
 
         try {
@@ -51,7 +51,10 @@ public class Cliente {
     }
 
 
-
+    /**
+     * Método que pide al usuario la ruta y el nombre del archivo. Devuelve un String.
+     * @return
+     */
     public static String pedirRuta(){
         Scanner sc = new Scanner(System.in);
         String ruta="";
